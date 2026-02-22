@@ -1,4 +1,4 @@
-# 🐾 DSH
+#  DSH
 **Asignatura Desarrollo de Sistemas Hipermedia**
 
 <div align="center">
