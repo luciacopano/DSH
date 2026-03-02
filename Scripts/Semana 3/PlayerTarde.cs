@@ -4,10 +4,12 @@ public class Player : MonoBehaviour
 {
     public Camera camara;
     public float Velocidad = 5f;
+
+    GunControl gunControl;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gunControl = GetComponent<GunControl>();
     }
 
     // Update is called once per frame
@@ -23,8 +25,13 @@ public class Player : MonoBehaviour
         if (groundPlane.Raycast(ray, out rayLength))
         {
             Vector3 pointToLook = ray.GetPoint(rayLength);
-            Debug.DrawLine(ray.origin, pointToLook, Color.red);
+            Debug.DrawLine(transform.position, pointToLook, Color.red);
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            gunControl.Disparar();
         }
     }
 }
